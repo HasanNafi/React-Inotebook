@@ -3,10 +3,9 @@ import noteContext  from "../context/notes/NoteContext.js";
 
 const AddNote = () => {
     const context = useContext(noteContext );
-    // eslint-disable-next-line
     const {addNote} = context;
 
-    const [note, setNote] = useState ({title: "",description: "", tag :"default"})
+    const [note, setNote] = useState ({title: "",description: "", tag :""})
 
     const onSubmit = (e) =>{
         e.preventDefault();
@@ -24,18 +23,17 @@ const AddNote = () => {
         <form>
           <div className="form-group">
             <label htmlFor="title">Title</label>
-            <input type="text" className="form-control" id="title" name="title" aria-describedby="emailHelp" placeholder="Enter Title" onChange={onChange}/>
+            <input type="text" className="form-control" id="title" name="title" onChange={onChange} minLength={5} required/>
           </div>
           <div className="form-group">
             <label htmlFor="description">Description</label>
-            <input type="text" className="form-control" id="description" name="description" placeholder="Description" onChange={onChange}/>
+            <input type="text" className="form-control" id="description" name="description" onChange={onChange} minLength={5} required/>
           </div>
-          <div className="form-check">
-          <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-            <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-            
-            
+          <div className="form-group">
+            <label htmlFor="tag">Tag</label>
+            <input type="text" className="form-control" id="tag" name="tag" onChange={onChange} minLength={5} required/>
           </div>
+          
           <button type="submit" className="btn btn-primary" onClick={onSubmit}>Add Note</button>
         </form>
       </div>

@@ -17,6 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "proxy": "http://localhost:3000",
     "eject": "react-scripts eject",
     "both" : "concurrently \"npm run start\" \"cd.. && cd backend && nodemon index.js\""
   },
